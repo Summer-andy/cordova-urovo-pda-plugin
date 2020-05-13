@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="scanPda" version="0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>scanPda</name>
+    <js-module name="scanPda" src="www/scanPda.js">
+        <clobbers target="cordova.plugins.scanPda" />
+    </js-module>
+      <platform name="android">
+      <source-file src="src/android/scanPda.java" target-dir="src/org/apache/cordova/scanPda" />
+
+      <config-file target="res/xml/config.xml" parent="/*"> 
+          <feature name="scanPda">  
+              <param name="android-package" value="org.apache.cordova.scanPda.scanPda"/>  
+          </feature>  
+      </config-file>  
+       <lib-file src="lib/android/platform_sdk_v4.1.0326.jar"/>
+  </platform>
+</plugin>
