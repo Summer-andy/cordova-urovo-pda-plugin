@@ -30,7 +30,6 @@ public class scanPda extends CordovaPlugin
   public boolean execute(String action, JSONArray args,
                          CallbackContext callbackContext) throws JSONException
   {
-    Log.e("urovo", "------execute11：" + action);
     if (action.equals("coolMethod"))
     {
       String message = args.getString(0);
@@ -113,13 +112,10 @@ public class scanPda extends CordovaPlugin
           int barcodelen = intent.getIntExtra("length", 0);
           byte temp = intent.getByteExtra("barcodeType", (byte) 0);
           String barcodeStr = new String(barcode, 0, barcodelen);
-          Log.e("urovo", "---barcode_type：" + temp);
-          Log.e("urovo", "---scan_result：" + barcodeStr);
           coolMethod(barcodeStr, callbackContext);
         }
       };
       activity.registerReceiver(mScanReceiver, filter);
-      // scanManager.startDecode();
     }
   }
 
@@ -131,12 +127,11 @@ public class scanPda extends CordovaPlugin
     // TODO Auto-generated method stub
      if (scanManager != null)
      {
-//      scanManager.stopDecode();
-//      scanManager.closeScanner();
+      scanManager.stopDecode();
+      scanManager.closeScanner();
      }
       if (activity != null)
       {
-        Log.e("urovo", "---barcode_type：" + mScanReceiver);
         activity.unregisterReceiver(mScanReceiver);
       }
   }
@@ -151,6 +146,5 @@ public class scanPda extends CordovaPlugin
     {
       callbackContext.error("scan error.");
     }
-    stopScan();
   }
 }
