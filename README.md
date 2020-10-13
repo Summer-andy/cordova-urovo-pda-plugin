@@ -7,7 +7,7 @@
 
 ### 如何安装
  -  ``` git clone https://github.com/sixiaodong123/cordova-urovo-pda-plugin ```   
- -  ``` cordova add plugin XXX(插件的路径,例如: /Users/mac/Desktop/cordova-urovo-pda-plugin/scanPda)  ```
+ -  ``` cordova plugin add XXX(插件的路径,例如: /Users/mac/Desktop/cordova-urovo-pda-plugin/scanPda)  ```
   
   
     假如你安装好了，你可以通过```cordova plugin list```查看到此插件。
